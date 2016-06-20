@@ -30,7 +30,7 @@ $(document).ready(function () {
         openSpeed: 300
     });
 
-    $('nav').find('a').click(function (e) {
+    $('nav').find('a:not(.notScroll)').click(function (e) {
         e.preventDefault();
         var section = $(this).attr('href');
         if (section == '#') {
