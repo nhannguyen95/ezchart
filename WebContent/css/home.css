@@ -1,5 +1,9 @@
 body {
-    background-color: rgb(108, 122, 137)
+    background-color: rgb(108, 122, 137);
+}
+
+.navbar-default {
+    border-bottom: solid 1px rgb(108, 122, 137);
 }
 
 .navbar-default .navbar-brand:hover,
@@ -21,7 +25,6 @@ section.success {
     background: #f0f2f3;
     padding-top: 6em;
     padding-bottom: 12em;
-/*    min-height: calc(100vh - 50px);*/
 }
 
 section.success > .container > .img-responsive {
