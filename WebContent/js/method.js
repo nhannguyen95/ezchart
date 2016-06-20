@@ -58,7 +58,7 @@ var helper = (function() {
         $('#profile').append(
             $('<p><img src=\"' + profile.image.url + '\"></p>'));
         $('#profile').append(
-            $('<p>' + profile.displayName  + '</p>'));
+            $('<p>' +'             ' + profile.displayName  + '</p>'));
         
       }, function(err) {
         var error = err.result;
@@ -147,6 +147,7 @@ function statusChangeCallback(response) {
     version    : 'v2.6' // use graph api version 2.6
   });
   FB.Event.subscribe('auth.login', function() {
+
 	  profile.style.display = "none";
 		myBtn.style.display ="none";
 		myModal.style.display="none";
@@ -184,9 +185,14 @@ function statusChangeCallback(response) {
   // Here we run a very simple test of the Graph API after login is
   // successful.  See statusChangeCallback() for when this call is made.
   function testAPI() {
-    FB.api('/me',{fields: "id,name,picture"}, function(response) {
+	  
+      FB.api('/me',{fields: "id,name,picture"}, function(response) {
       document.getElementById('fbname').innerHTML =response.name;
       document.getElementById('fbphoto').innerHTML = '<img src="http://graph.facebook.com/' + response.id + '/picture?width=25&height=25" />';	
     });
  
+  }
+  function Reload()
+  {
+  window.location.reload();
   }
