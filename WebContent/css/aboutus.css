@@ -1,10 +1,10 @@
 body {
-    font-size: 16px;
     background: rgb(108, 122, 137);
     font-family: sans-serif;
 }
 
 #add-background {
+    font-size: 16px;
     background: #f0f2f3;
 }
 
@@ -13,9 +13,7 @@ body {
     background: white;
 }
 
-.container {
-    width: 750px;
-}
+
 
 .menu_picture {
     border-radius: 10px;
