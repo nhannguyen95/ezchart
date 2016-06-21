@@ -1,6 +1,7 @@
 /**
  * 
  */
+//google section
 var auth2 = {};
 var helper = (function() {
   return {
@@ -21,9 +22,8 @@ var helper = (function() {
     	profile.style.display = 'block';
   		myBtn.style.display ='none';
   		myModal.style.display='none';
-  		fbname.style.display='none';
-  		fbphoto.style.display ='none';
-  		userphoto.style.display='none';
+  		fbname.style.display="none";
+		fbphoto.style.display="none";
   		
 	  	$('#authOps').show('slow');
 	    $('#gConnect').hide();
@@ -55,10 +55,13 @@ var helper = (function() {
       }).then(function(res) {
         var profile = res.result;
         $('#profile').empty();
-        $('#profile').append(
-            $('<p><img src=\"' + profile.image.url + '\"></p>'));
-        $('#profile').append(
-            $('<p>' +'             ' + profile.displayName  + '</p>'));
+    
+         $('#profile').append(
+                $('<li class="ggphoto"><img style="border-radius:100%" src=\"' + profile.image.url + '\"></li>').addClass('scale-to-small'));
+       
+        $('#profile').after(
+           $('<li class="ggname dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">' + profile.displayName +
+        		   '<span class="caret"></span></a><ul class="dropdown-menu"><li><a href="#">Manage</a></li><li><a href="#">Sign Out</a></li> </ul></li></li>' ));
         
       }, function(err) {
         var error = err.result;
@@ -93,11 +96,18 @@ function startApp() {
     gapi.client.load('plus','v1').then(function() {
       gapi.signin2.render('signin-button', {
           scope: 'https://www.googleapis.com/auth/plus.login',
-          fetch_basic_profile: false });
+          fetch_basic_profile: true,
+          'width': 240,
+          'height': 50,
+          'longtitle': true,
+          'theme': 'dark'
+          
+          
+          
+          });
       gapi.auth2.init({fetch_basic_profile: false,
           scope:'https://www.googleapis.com/auth/plus.login'}).then(
             function (){
-          
               auth2 = gapi.auth2.getAuthInstance();
               auth2.isSignedIn.listen(updateSignIn);
               auth2.then(updateSignIn);
@@ -107,25 +117,18 @@ function startApp() {
 }
 
 
-
+//facebook section
 function statusChangeCallback(response) {
     // The response object is returned with a status field that lets the
     // app know the current login status of the person.
     // Full docs on the response object can be found in the documentation
     // for FB.getLoginStatus().
     if (response.status == 'connected') {
-    
       // Logged into your app and Facebook.
-      testAPI();
-    } else if (response.status == 'not_authorized') {
-      // The person is logged into Facebook, but not your app.
-      userphoto.style.display = 'none';
-      fbname.style.display = 'none';
-    } else {
-    	userphoto.style.display = 'none';
-      // The person is not logged into Facebook, so we're not sure if
-      // they are logged into this app or not.
-    	fbname.style.display = 'none';
+      showProfile();
+    } 
+    else {
+    	//do nothing
     }
   }
 
@@ -147,12 +150,8 @@ function statusChangeCallback(response) {
     version    : 'v2.6' // use graph api version 2.6
   });
   FB.Event.subscribe('auth.login', function() {
-
-	  profile.style.display = "none";
-		myBtn.style.display ="none";
-		myModal.style.display="none";
-		fbname.style.display="block";
-		userphoto.style.display="none";
+	  checkLoginState();
+	  	
  });
 
   // Now that we've initialized the JavaScript SDK, we call 
@@ -184,15 +183,15 @@ function statusChangeCallback(response) {
 
   // Here we run a very simple test of the Graph API after login is
   // successful.  See statusChangeCallback() for when this call is made.
-  function testAPI() {
-	  
+  function showProfile() {
+	  profile.style.display="none"
+  		myBtn.style.display ="none";
+  		myModal.style.display="none";
+  		fbname.style.display="block";
+  		fbphoto.style.display="block";
       FB.api('/me',{fields: "id,name,picture"}, function(response) {
-      document.getElementById('fbname').innerHTML =response.name;
-      document.getElementById('fbphoto').innerHTML = '<img src="http://graph.facebook.com/' + response.id + '/picture?width=25&height=25" />';	
+      document.getElementById('fbname').innerHTML ='<a class="fbname dropdown-toggle" data-toggle="dropdown" href="#">' + response.name + '<span class="caret"></span></a><ul class="dropdown-menu"><li><a href="#">Manage</a></li><li><a href="#">Sign Out</a></li> </ul>';
+      document.getElementById('fbphoto').innerHTML = '<li class="fbphoto"><img style=" margin-top:8px; margin-left:8px; border-radius:100%" src="http://graph.facebook.com/' + response.id + '/picture?width=25&height=25" /></li>';	
     });
  
-  }
-  function Reload()
-  {
-  window.location.reload();
   }
