@@ -18,23 +18,18 @@ var helper = (function() {
             authResult[field] + '<br/>');
       }
       if (authResult.isSignedIn.get()) {
-   
-    	profile.style.display = 'block';
-  		myBtn.style.display ='none';
-  		myModal.style.display='none';
-  		fbname.style.display="none";
-		fbphoto.style.display="none";
-  		
-	  	$('#authOps').show('slow');
-	    $('#gConnect').hide();
-	    helper.profile();
-	    helper.people();
+    	  helper.profile();
+    	  profile.style.display = 'block';
+  		  myBtn.style.display ='none';
+  		  modal.style.display='none';
+  		  fbname.style.display='none';
+  		  fbphoto.style.display='none';
+	    
+
       } else {
           if (authResult['error'] || authResult.currentUser.get().getAuthResponse() == null) {          
           }
-          	$('#authResult').append('Logged out');
-          	$('#authOps').hide('slow');
-          	$('#gConnect').show();
+          	
       }
     },
 
@@ -45,7 +40,11 @@ var helper = (function() {
       // Revoke the access token.
       auth2.disconnect();
     },
-
+    
+    ggsignout: function(){
+    	   auth2.disconnect();
+    	document.location.reload();
+    },
     /**
      * Gets and renders the currently signed in user's profile data.
      */
@@ -61,7 +60,7 @@ var helper = (function() {
        
         $('#profile').after(
            $('<li class="ggname dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">' + profile.displayName +
-        		   '<span class="caret"></span></a><ul class="dropdown-menu"><li><a href="#">Manage</a></li><li><a href="#">Sign Out</a></li> </ul></li></li>' ));
+        		   '<span class="caret"></span></a><ul class="dropdown-menu"><li><a href="#">Manage</a></li><li><a href="#" onclick="helper.ggsignout();">Sign Out</a></li> </ul></li></li>' ));
         
       }, function(err) {
         var error = err.result;
@@ -78,12 +77,12 @@ var helper = (function() {
  * @param {boolean} isSignedIn The new signed in state.
  */
 var updateSignIn = function() {
-  
+ 
   if (auth2.isSignedIn.get()) {
-
+	  
     helper.onSignInCallback(gapi.auth2.getAuthInstance());
   }else{
- 
+
     helper.onSignInCallback(gapi.auth2.getAuthInstance());
   }
 }
@@ -100,10 +99,7 @@ function startApp() {
           'width': 240,
           'height': 50,
           'longtitle': true,
-          'theme': 'dark'
-          
-          
-          
+          'theme': 'dark'       
           });
       gapi.auth2.init({fetch_basic_profile: false,
           scope:'https://www.googleapis.com/auth/plus.login'}).then(
@@ -128,6 +124,8 @@ function statusChangeCallback(response) {
       showProfile();
     } 
     else {
+    
+      		
     	//do nothing
     }
   }
@@ -135,6 +133,17 @@ function statusChangeCallback(response) {
   // This function is called when someone finishes with the Login
   // Button.  See the onlogin handler attached to it in the sample
   // code below.
+function fbLogout() {
+    FB.getLoginStatus(function(response) {
+        if (response && response.status === 'connected') {
+            	FB.logout(function(response) {
+            	statusChangeCallback(response);	
+                document.location.reload();
+            });
+        }
+    });
+}
+
   function checkLoginState() {
     FB.getLoginStatus(function(response) {
       statusChangeCallback(response);
@@ -169,7 +178,8 @@ function statusChangeCallback(response) {
   FB.getLoginStatus(function(response) {
     statusChangeCallback(response);
   });
-
+  
+  
   };
 
   // Load the SDK asynchronously
@@ -184,13 +194,13 @@ function statusChangeCallback(response) {
   // Here we run a very simple test of the Graph API after login is
   // successful.  See statusChangeCallback() for when this call is made.
   function showProfile() {
-	  profile.style.display="none"
+	  	profile.style.display='none';
   		myBtn.style.display ="none";
   		myModal.style.display="none";
   		fbname.style.display="block";
   		fbphoto.style.display="block";
       FB.api('/me',{fields: "id,name,picture"}, function(response) {
-      document.getElementById('fbname').innerHTML ='<a class="fbname dropdown-toggle" data-toggle="dropdown" href="#">' + response.name + '<span class="caret"></span></a><ul class="dropdown-menu"><li><a href="#">Manage</a></li><li><a href="#">Sign Out</a></li> </ul>';
+      document.getElementById('fbname').innerHTML ='<a class="fbname dropdown-toggle" data-toggle="dropdown" href="#">' + response.name + '<span class="caret"></span></a><ul class="dropdown-menu"><li><a href="#">Manage</a></li><li onClick="fbLogout();" ><a href >Sign Out</a></li> </ul>';
       document.getElementById('fbphoto').innerHTML = '<li class="fbphoto"><img style=" margin-top:8px; margin-left:8px; border-radius:100%" src="http://graph.facebook.com/' + response.id + '/picture?width=25&height=25" /></li>';	
     });
  
