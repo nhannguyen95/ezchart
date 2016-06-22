@@ -30,17 +30,18 @@ $(document).ready(function () {
         openSpeed: 300
     });
 
-    $('nav').find('a').click(function (e) {
-        e.preventDefault();
-        var section = $(this).attr('href');
-        if (section == '#') {
-            $('html, body').animate({
-                scrollTop: 0
-            });
-        } else {
-              $('html, body').animate({
-                scrollTop: $(section).offset().top
-            });
-        }
-    });
+//    $('nav').find('a').click(function (e) {
+//        e.preventDefault();
+//        var section = $(this).attr('href');
+//        if (section == '#') {
+//            $('html, body').animate({
+//                scrollTop: 0
+//            });
+//        } else {
+//              $('html, body').animate({
+//                scrollTop: $(section).offset().top
+//            });
+//        }
+//    });
 });
+
