@@ -204,16 +204,19 @@ span {
 }
 @media (max-width: 768px)
 {
+	.myBtn{
+		margin-top:0px;
+	}
 	.fbphoto{
 		display:none;
 	}
 	.fbname{
-		margin-bottom:10px;
+		margin-top : -12px;
 	}
 	.ggphoto{
 		display:none;	
 	}
 	.ggname{
-		margin-bottom:10px;
+		margin-top: -8px;
 	}
 }
