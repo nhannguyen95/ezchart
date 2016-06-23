@@ -4,6 +4,7 @@ body {
 
 .navbar-default {
     border-bottom: solid 1px rgb(108, 122, 137);
+    background: rgb(255, 255, 255);
 }
 
 .navbar-default .navbar-brand:hover,
@@ -200,4 +201,19 @@ span {
 
 #slideshow-anchor {
     color: rgb(134, 145, 158);
+}
+@media (max-width: 768px)
+{
+	.fbphoto{
+		display:none;
+	}
+	.fbname{
+		margin-bottom:10px;
+	}
+	.ggphoto{
+		display:none;	
+	}
+	.ggname{
+		margin-bottom:10px;
+	}
 }

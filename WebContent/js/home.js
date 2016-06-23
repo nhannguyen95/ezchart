@@ -6,17 +6,17 @@ $(document).ready(function () {
         responsiveClass: true,
         responsive: {
             0: {
-                items: 1,
-                nav: true
+                items: 1
+//                nav: true
             },
             600: {
-                items: 2,
-                nav: false
+                items: 2
+//                nav: false
             },
             1000: {
-                items: 3,
-                nav: true,
-                loop: true
+                items: 3
+//                nav: true
+//                loop: true
             }
         }
     });
@@ -30,18 +30,17 @@ $(document).ready(function () {
         openSpeed: 300
     });
 
-//    $('nav').find('a').click(function (e) {
-//        e.preventDefault();
-//        var section = $(this).attr('href');
-//        if (section == '#') {
-//            $('html, body').animate({
-//                scrollTop: 0
-//            });
-//        } else {
-//              $('html, body').animate({
-//                scrollTop: $(section).offset().top
-//            });
-//        }
-//    });
+    $('nav').find('a:not(.notScroll)').click(function (e) {
+        e.preventDefault();
+        var section = $(this).attr('href');
+        if (section == '#') {
+            $('html, body').animate({
+                scrollTop: 0
+            });
+        } else {
+              $('html, body').animate({
+                scrollTop: $(section).offset().top
+            });
+        }
+    });
 });
-
