@@ -24,7 +24,6 @@ var helper = (function() {
   		  modal.style.display='none';
   		  fbname.style.display='none';
   		  fbphoto.style.display='none';
-	    
 
       } else {
           if (authResult['error'] || authResult.currentUser.get().getAuthResponse() == null) {          

@@ -27,7 +27,7 @@ body {
 
 .app-icon {
     display: inline-block;
-    background: url('../resource/App-Store_icon.png') no-repeat;
+    background: url('../resources/img/App-Store_icon.png') no-repeat;
     width: 101px;
     height: 32px;
     margin-left: 15px;
