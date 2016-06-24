@@ -202,5 +202,6 @@ function fbLogout() {
       document.getElementById('fbname').innerHTML ='<a class="fbname dropdown-toggle" data-toggle="dropdown" href="#">' + response.name + '<span class="caret"></span></a><ul class="dropdown-menu"><li><a href="#">Manage</a></li><li onClick="fbLogout();" ><a href >Sign Out</a></li> </ul>';
       document.getElementById('fbphoto').innerHTML = '<li class="fbphoto"><img style=" margin-top:8px; margin-left:8px; border-radius:100%" src="http://graph.facebook.com/' + response.id + '/picture?width=25&height=25" /></li>';	
     });
- 
   }
+  
+  startApp();
