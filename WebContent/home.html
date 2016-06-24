@@ -1,41 +1,53 @@
 <!DOCTYPE html>
-<html lang='en'>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <meta charset='utf-8'>
+    <meta charset='ISO-8859-1'></meta>
+    <meta name='viewport' content='width=device-width, initial-scale=1'></meta>
     
-    
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <!-- what happens if we delete this ? -->
     <script src="http://s.codepen.io/assets/libs/modernizr.js" type="text/javascript"></script>
 
-    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Fira+Sans:400,300,700,500,400italic,500italic,700italic,300italic' />
-
+	<!-- font -->
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Fira+Sans:400,300,700,500,400italic,500italic,700italic,300italic'></link>
+	<link href='http://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet' type='text/css'></link>
+	
+	<!-- jquery -->
     <script src="https://code.jquery.com/jquery-latest.js"></script>
     <script src="https://code.jquery.com/jquery-latest.min.js"></script>
-    <link href='http://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet' type='text/css'>
-    <link rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
+    
+    <!-- bootstrap -->
+    <link rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'></link>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
+	<!-- owlcarousel for slideshow -->
     <script src="http://www.owlcarousel.owlgraphic.com/assets/owlcarousel/owl.carousel.js"></script>
-    <link rel="stylesheet" href="http://www.owlcarousel.owlgraphic.com/assets/owlcarousel/assets/owl.carousel.min.css" />
-    <link rel="stylesheet" href="http://www.owlcarousel.owlgraphic.com/assets/owlcarousel/assets/owl.theme.default.min.css" />
+    <link rel="stylesheet" href="http://www.owlcarousel.owlgraphic.com/assets/owlcarousel/assets/owl.carousel.min.css" ></link>
+    <link rel="stylesheet" href="http://www.owlcarousel.owlgraphic.com/assets/owlcarousel/assets/owl.theme.default.min.css"></link>
 
+	<!-- featherlight for gallery -->
     <script src='http://noelboss.github.io/featherlight/release/featherlight.min.js'></script>
     <script src='http://noelboss.github.io/featherlight/release/featherlight.gallery.min.js'></script>
-    <link rel='stylesheet' href='http://noelboss.github.io/featherlight/release/featherlight.min.css'>
-
-    <link rel='stylesheet' href='css/home.css' />
-    <script src='js/home.js'></script>
-
-    <script src="js/method.js"></script>-->
-    <meta name="google-signin-client_id" content="846042350708-k2uajbcle5b83vo1bajgr5qeducmcibm.apps.googleusercontent.com">-->
-
-    <link rel="stylesheet" type="text/css" href="css/Format.css">
+    <link rel='stylesheet' href='http://noelboss.github.io/featherlight/release/featherlight.min.css'></link>
+    
+    <!-- google login -->
     <script src="https://www.googleapis.com/auth/plus.login"></script>
     <script src="https://apis.google.com/js/client:plusone.js"></script>
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
-    <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+    <script src="https://apis.google.com/js/platform.js" async="async" defer="defer"></script>
+    <script src="https://apis.google.com/js/platform.js?onload=renderButton" async="async" defer="defer"></script>
     <script src="https://apis.google.com/js/client:platform.js?onload=startApp"></script>
+    <meta name="google-signin-client_id" content="846042350708-k2uajbcle5b83vo1bajgr5qeducmcibm.apps.googleusercontent.com"></meta>
+	    
+	<!-- local resources -->
+    
+ 	<!-- js -->
+ 	<script src="../resources/js/home.js" th:src="@{/resources/js/home.js}"></script>
+ 	<script src="../resources/js/method.js" th:src="@{/resources/js/method.js}"></script>
+    
+    <!-- css -->
+    <link rel="stylesheet" href="../resources/css/format.css" th:href="@{/resources/css/format.css}"></link>
+    <link rel="stylesheet" href="../resources/css/home.css" th:href="@{/resources/css/home.css}" ></link>
+
 </head>
 
 <body>
@@ -47,14 +59,14 @@
                     <span class='icon-bar'></span>
                     <span class='icon-bar'></span>
                 </button>
-                <a class='navbar-brand' href='#'>eZChart</a>
+                <a class='navbar-brand' href='@{/home}'>eZChart</a>
             </div>
             <div class='collapse navbar-collapse' id='myNavbar'>
                 <ul class='nav navbar-nav'>
-                    <li><a href='#'>Home</a></li>
+                    <li><a th:href="@{/home}">Home</a></li>
                     <li><a href='#feature-anchor'>Feature</a></li>
                     <li><a href='#slideshow-anchor'>Showcase</a></li>
-                    <li><a class='notScroll' href='aboutus.html'>Contact</a></li>
+                    <li><a class='notScroll' th:href="@{/aboutus}">Contact</a></li>
                 </ul>
                 <ul class='nav navbar-nav navbar-right'>                    	       					           	
                     	<li id="myBtn" class="myBtn" ><a href='#'>Sign In</a></li>	
@@ -94,52 +106,51 @@
             <div class="modal-header">
                 <span class="close">×</span>
                 <center>
-                    <h2 style="font-family: Arial">Sign In</h2></center>
+                    <h2 style="font-family: Arial">Sign In</h2>
+                </center>
             </div>
             <div class="modal-body">
 				
                 <button class="btn-social facebook" onclick="FB.login();">
-                   <span style=" position: relative; left:-15px"> <img style="width:30px; height:30px" src="resource/F_icon.svg.png" /></span>
+                   <span style=" position: relative; left:-15px"> 
+                   		<img style="width:30px; height:30px" src="../resources/img/F_icon.svg.png" 
+                   		th:src="@{/resources/img/F_icon.svg.png}"/></span>
                     <span style="padding-left:28px">Sign in with Facebook</span>
                 </button>
                 
-               
                 <div class="google-social" id="signin-button"></div>
-
-
-
             </div>
         </div>
     </div>
 
     <section id='about' class='success'>
         <div class='container' align='center'>
-            <img class='img-responsive' src='resource/logo.png' />
+            <img class='img-responsive' src='../resources/img/logo.png' th:src="@{/resources/img/logo.png}"/>
             <div>
                 <a id='creChart' class='btn btn-lg btn-outline'>Create Your Chart</a>
             </div>
         </div>
     </section>
 
-    <a dfn id='feature-anchor' class='anchor'>.</a>
+    <a dfn="dfn" id='feature-anchor' class='anchor'>.</a>
     <section id='feature'>
         <div class='row'>
             <div class='col-md-12 text-center'><span id='feature-text'>FEATURES</span></div>
         </div>
         <div class='container'>
             <div class='col-md-4 scale-to-small'>
-                <img class='img-responsive' src='resource/export.png' />
+                <img class='img-responsive' src='../resources/img/export.png' th:src="@{/resources/img/export.png}"/>
             </div>
             <div class='col-md-4 scale-to-small'>
-                <img class='img-responsive' src='resource/share.png' />
+                <img class='img-responsive' src='../resources/img/share.png' th:src="@{/resources/img/share.png}"/>
             </div>
             <div class='col-md-4 scale-to-small'>
-                <img class='img-responsive' src='resource/manage.png' />
+                <img class='img-responsive' src='../resources/img/manage.png' th:src="@{resources/img/manage.png}"/>
             </div>
         </div>
     </section>
 
-    <a dfn id='slideshow-anchor' class='anchor'>.</a>
+    <a dfn="dfn" id='slideshow-anchor' class='anchor'>.</a>
     <section id="slideshow">
         <div class='row'>
             <div class='col-md-12 text-center'><span id='showcase-text'>SHOWCASE</span></div>
@@ -149,28 +160,28 @@
                 <div class="large-12 columns">
                     <div class="owl-carousel">
                         <div class="item">
-                            <a class="gallery" href="resource/show1.png">
-                                <img src="resource/show1.png" />
+                            <a class="gallery" href="../resources/img/show1.png" th:href="@{/resources/img/show1.png}">
+                                <img src="../resources/img/show1.png" th:src="@{/resources/img/show1.png}"/>
                             </a>
                         </div>
                         <div class="item">
-                            <a class="gallery" href="resource/show2.png">
-                                <img src="resource/show2.png" />
+                            <a class="gallery" href="../resources/img/show2.png" th:href="@{/resources/img/show2.png}">
+                                <img src="../resources/img/show2.png" th:src="@{/resources/img/show2.png}"/>
                             </a>
                         </div>
                         <div class="item">
-                            <a class="gallery" href="resource/show3.png">
-                                <img src="resource/show3.png" />
+                            <a class="gallery" href="../resources/img/show3.png" th:href="@{/resources/img/show3.png}">
+                                <img src="../resources/img/show3.png" th:src="@{/resources/img/show3.png}" />
                             </a>
                         </div>
                         <div class="item">
-                            <a class="gallery" href="resource/show4.png">
-                                <img src="resource/show4.png" />
+                            <a class="gallery" href="../resources/img/show4.png" th:href="@{/resources/img/show4.png}">
+                                <img src="../resources/img/show4.png" th:src="@{/resources/img/show4.png}" />
                             </a>
                         </div>
                         <div class="item">
-                            <a class="gallery" href="resource/show5.png">
-                                <img src="resource/show5.png" />
+                            <a class="gallery" href="../resources/img/show5.png" th:href="@{/resources/img/show5.png}">
+                                <img src="../resources/img/show5.png" th:src="@{/resources/img/show5.png}" />
                             </a>
                         </div>
                     </div>
@@ -183,25 +194,26 @@
         <div class='row'>
             <div class='col-sm-4'>
                 <a href='http://www.axonactive.com' target='_blank'>
-                    <img class='img-responsive center logo-responsive-phone' src='resource/axonactive.png'>
+                    <img class='img-responsive center logo-responsive-phone' src='../resources/img/axonactive.png'
+                    th:src='@{/resources/img/axonactive.png}'></img>
                 </a>
             </div>
             <div class='col-xs-4 col-sm-5 half-full-width'>
                 <div class='align-left'>
                     <div class='row'>
                         <div class='scale-to-small col-xs-1'>
-                            <img src='resource/location.png'>
+                            <img src='../resources/img/location.png' th:src='@{/resources/img/location.png}'></img>
                         </div>
                         <div class='col-xs-10'>
-                            <span class='text-uppercase span-bold'>TP. Hồ Chí Minh, Việt Nam</span>
-                            <br>
+                            <span class='text-uppercase span-bold'>HO CHI MINH CITY, VIET NAM</span>
+                            <br></br>
                             <div class='content'>
-                                <span>39B Trường Sơn,</span>
-                                <br>
-                                <span>Phường 4, Quận Tân Bình,</span>
-                                <br>
-                                <span>TP. Hồ Chí Minh, Việt Nam</span>
-                                <br>
+                                <span>39B Truong Son Street,</span>
+                                <br></br>
+                                <span>Ward 4, Tan Binh District,</span>
+                                <br></br>
+                                <span>Ho Chi Minh City, Vietnam</span>
+                                <br></br>
                                 <span>
                                     <a class='link' href='mailto:info@axonactive.com' target='_blank'>info@axonactive.com</a>
                                 </span>
@@ -214,58 +226,57 @@
                 <div class='align-left'>
                     <div class='row'>
                         <div class='scale-to-small col-xs-1'>
-                            <img src='resource/location.png'>
+                            <img src='../resources/img/location.png' th:src="@{/resources/img/location.png}"></img>
                         </div>
                         <div class='col-xs-10'>
-                            <span class='span-bold'>ĐÀ NẴNG, VIỆT NAM</span>
+                            <span class='span-bold'>DA NANG, VIETNAM</span>
                         </div>
                     </div>
                     <div class='row'>
                         <div class='scale-to-small col-xs-1'>
-                            <img src='resource/location.png'>
+                            <img src='../resources/img/location.png' th:src="@{/resources/img/location.png}"></img>
                         </div>
                         <div class='col-xs-10'>
-                            <span class='span-bold'>SAN FRANCISCO, HOA KỲ</span>
+                            <span class='span-bold'>SAN FRANCISCO, USA</span>
                         </div>
                     </div>
                     <div class='row'>
                         <div class='scale-to-small col-xs-1'>
-                            <img src="resource/location.png">
+                            <img src='../resources/img/location.png' th:src="@{/resources/img/location.png}"></img>
                         </div>
                         <div class='col-xs-10'>
-                            <spann class='span-bold'>LUZERN, THỤY SỸ</spann>
+                            <span class='span-bold'>LUZERN, SWITZERLAND</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <hr>
+        <hr></hr>
         <div class='row'>
             <div class='col-sm-7 copyright half-full-width'>
-                <span class='inline'>Sản phẩm của</span>
+                <span class='inline'>A product of</span>
                 <a class='link inline' href='http://axonactive.com' tabindex='-1' target='_blank'>AXON ACTIVE VIETNAM</a>
-                <span>
-                ©
+                <span>© 
                 <script>document.write(new Date().getFullYear())</script>
                 |
-                    <span class='inline'>Bản quyền được bảo hộ.</span>
+                    <span class='inline'>All rights reserved.</span>
                 </span>
 
             </div>
             <div class='col-sm-5 term-privacy half-full-width'>
-                <a class='link' href='#' tabindex='-1'>Điều khoản sử dụng</a> |
-                <a class='link' href='#' tabindex='-1'>Chính sách bảo mật</a>
+                <a class='link' href='#' tabindex='-1'>Terms of Service</a> |
+                <a class='link' href='#' tabindex='-1'>Privacy Statement</a>
             </div>
         </div>
     </footer>
-
+ 
     <script>
         var modal = document.getElementById('myModal');
     
         // Get the button that opens the modal
         var btn = document.getElementById("myBtn");
 
-        // Get the <span> element that closes the modal
+        // Get the span element that closes the modal
         var span = document.getElementsByClassName("close")[0];
 
         // When the user clicks the button, open the modal 
@@ -274,7 +285,7 @@
             modal.style.display = "block";
         };
 
-        // When the user clicks on <span> (x), close the modal
+        // When the user clicks on span (x), close the modal
         span.onclick = function() {
 
             modal.style.display = "none";

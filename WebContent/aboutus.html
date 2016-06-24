@@ -1,30 +1,34 @@
-<!doctype html5>
-<html>
-
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset='utf-8'>
-
+    <meta charset='ISO-8859-1'></meta>
+	<meta name="view-port" content="width=device-width, initial-scale=1"></meta>
+	    
+    <!-- jquery -->
     <script src="https://code.jquery.com/jquery-latest.js"></script>
     <script src="https://code.jquery.com/jquery-latest.min.js"></script>
 
-    <link rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
+	<!-- bootstrap -->
+    <link rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'></link>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
-    <meta name="view-port" content="width=device-width, initial-scale=1">
-
-    <link rel='stylesheet' href='css/home.css'>
-    <link rel='stylesheet' href='css/aboutus.css'>
-
-
-    <script src="js/method.js"></script>-->
-    <meta name="google-signin-client_id" content="846042350708-k2uajbcle5b83vo1bajgr5qeducmcibm.apps.googleusercontent.com">-->
-
-    <link rel="stylesheet" type="text/css" href="css/Format.css">
-    <script src="https://www.googleapis.com/auth/plus.login"></script>
+	<!-- google login -->
+	<script src="https://www.googleapis.com/auth/plus.login"></script>
     <script src="https://apis.google.com/js/client:plusone.js"></script>
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
-    <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+    <script src="https://apis.google.com/js/platform.js" async="async" defer="defer"></script>
+    <script src="https://apis.google.com/js/platform.js?onload=renderButton" async="async" defer="defer"></script>
     <script src="https://apis.google.com/js/client:platform.js?onload=startApp"></script>
+	<meta name="google-signin-client_id" content="846042350708-k2uajbcle5b83vo1bajgr5qeducmcibm.apps.googleusercontent.com"></meta>
+	
+	<!-- local resources -->
+	
+	<!-- js -->
+	<script src="../resources/js/method.js" th:src="@{/resources/js/method.js}"></script>
+	
+	<!-- css -->
+    <link rel='stylesheet' href='../resources/css/home.css' th:href="@{/resources/css/home.css}"></link>
+    <link rel='stylesheet' href='../resources/css/aboutus.css' th:href="@{/resources/css/aboutus.css}"></link>
+    <link rel="stylesheet" type="text/css" href="../resources/css/format.css" th:href="@{/resources/css/format.css}"></link>
 
 </head>
 
@@ -37,14 +41,14 @@
                     <span class='icon-bar'></span>
                     <span class='icon-bar'></span>
                 </button>
-                <a class='navbar-brand' class='notScroll' href='index.html'>eZChart</a>
+                <a class='navbar-brand notScroll' th:href="@{/home}">eZChart</a>
             </div>
             <div class='collapse navbar-collapse' id='myNavbar'>
                 <ul class='nav navbar-nav'>
-                    <li><a class='notScroll' href='index.html'>Home</a></li>
-                    <li><a class='notScroll' href='index.html#feature-anchor'>Feature</a></li>
-                    <li><a class='notScroll' href='index.html#slideshow-anchor'>Showcase</a></li>
-                    <li><a class='notScroll' href='aboutus.html'>Contact</a></li>
+                    <li><a class='notScroll' th:href="@{/home}">Home</a></li>
+                    <li><a class='notScroll' th:href='@{/home#feature-anchor}'>Feature</a></li>
+                    <li><a class='notScroll' th:href='@{/home#slideshow-anchor}'>Showcase</a></li>
+                    <li><a class='notScroll' th:href='@{/aboutus}'>Contact</a></li>
                 </ul>
                 <ul class='nav navbar-nav navbar-right'>
                     <li id="myBtn"><a href='#'>Login</a></li>
@@ -74,12 +78,15 @@
             <div class="modal-header">
                 <span class="close">×</span>
                 <center>
-                    <h2 style="font-family: Arial">Sign In</h2></center>
+                    <h2 style="font-family: Arial">Sign In</h2>
+               	</center>
             </div>
             <div class="modal-body">
 
                 <button class="btn-social facebook" onclick="FB.login();">
-                   <span style=" position: relative; left:-15px"> <img style="width:30px; height:30px" src="resource/F_icon.svg.png" /></span>
+                   <span style=" position: relative; left:-15px"> 
+                   <img style="width:30px; height:30px" src="../resources/img/F_icon.svg.png" 
+                   th:src="@{/resources/img/F_icon.svg.png}"/></span>
                     <span style="padding-left:28px">Sign in with Facebook</span>
                 </button>
                 
@@ -96,23 +103,23 @@
         <section class="container" id='main-content'>
             <section id="about_us_infor">
                 <h3>About Us</h3>
-                <img src="https://www.zingpoll.com/assets/image/aavn-oursourcing-firm.jpg" id="img_main">
-                </br>
-                Axon Active <a href=http://www.axonactive.com/offshore-development-center>Swiss offshore software development</a> company with strong <a href="http://www.axonactive.com/expertise/">expertise in Agile IT</a> and a large portfolio of successful international projects, ranging from small businesses to highly complex multi-platform systems for large corporate clients.</br>
-                </br>
-                Axon Active builds solid partnerships with its clients by assembling tailored <a href="Axon Active builds solid partnerships with its clients by assembling tailored">develpement teams in Vietnam </a> who deliver high-quality, innovative solutions at a very competitive price. </br>
-                </br>
-                In 2008, Swiss-owned and managed, Axon Active created a high-performance, scalable software delivery infrastructure in Vietnam. The 300+ developers' outsourcing organization offers the perfect mix of talent management, Agile and Scrum practices, technology skills and industry knowledge. </br>
-                </br>
+                <img src="https://www.zingpoll.com/assets/image/aavn-oursourcing-firm.jpg" id="img_main"></img>
+                <br></br>
+                Axon Active <a href="http://www.axonactive.com/offshore-development-center">Swiss offshore software development</a> company with strong <a href="http://www.axonactive.com/expertise/">expertise in Agile IT</a> and a large portfolio of successful international projects, ranging from small businesses to highly complex multi-platform systems for large corporate clients.<br></br>
+                <br></br>
+                Axon Active builds solid partnerships with its clients by assembling tailored <a href="Axon Active builds solid partnerships with its clients by assembling tailored">develpement teams in Vietnam </a> who deliver high-quality, innovative solutions at a very competitive price. <br></br>
+                <br></br>
+                In 2008, Swiss-owned and managed, Axon Active created a high-performance, scalable software delivery infrastructure in Vietnam. The 300+ developers' outsourcing organization offers the perfect mix of talent management, Agile and Scrum practices, technology skills and industry knowledge. <br></br>
+                <br></br>
                 For more some information about:
                 <ul>
-                    <li>Axon services & expertise, please visit:<a href="http://www.axonactive.com/"> axonative.com</a></li>
+                    <li>Axon services &amp; expertise, please visit:<a href="http://www.axonactive.com/"> axonative.com</a></li>
                     <li> Axon social life, just stake a tour:<a href="href=https://www.facebook.com/AxonActiveVietnam">www.facebook.com/AxonActiveVietnam</a></li>
                 </ul>
-                </br>
+                <br></br>
                 Axon Active has years of experience in application development. Besides EzChart, Axon launched a dozen of awesome applications:
-                </br>
-                </br>
+                <br></br>
+                <br></br>
             </section>
 
             <section class="row feature" id="about_us_menu">
@@ -125,7 +132,7 @@
                     <p>getCalendar is an easy-to-use tool to help you schedule your events with colleagues by showing both your calendar and your colleague’s at the same time.</p>
 
                     <div class="icon">
-                        <a href="https://itunes.apple.com/us/app/getcalendar/id719318971?ls=1&mt=8" class="App-icon" target="_blank"> </a>
+                        <a href="https://itunes.apple.com/us/app/getcalendar/id719318971" class="App-icon" target="_blank"> </a>
                     </div>
 
                 </article>
@@ -170,7 +177,7 @@
                         <a href="https://itunes.apple.com/us/app/vierwaldstattersee-freizeit/id1050898152?mt=8" class="App-icon" target="_blank"> </a>
                     </div>
                     <div class="icon">
-                        <a href="https://play.google.com/store/apps/details?id=com.mappuls.lakelucerne&hl=de" class="Google-icon" target="_blank"> </a>
+                        <a href="https://play.google.com/store/apps/details?id=com.mappuls.lakelucerne" class="Google-icon" target="_blank"> </a>
                     </div>
                 </article>
 
@@ -223,7 +230,7 @@
                         <img src="https://www.zingpoll.com/assets/image/zingpoll.png" class="menu_picture " />
                     </div>
                     <p><strong>Zingpoll</strong></p>
-                    <p>ZingPoll is a poll maker and voting application which is simple & reliable for personal or working purposes. Discover core values of the app: Simple - Accessible - Illustrative - Private - Exportable - Shareable.</p>
+                    <p>ZingPoll is a poll maker and voting application which is simple &amp; reliable for personal or working purposes. Discover core values of the app: Simple - Accessible - Illustrative - Private - Exportable - Shareable.</p>
                     <div class="icon">
                         <a href="https://itunes.apple.com/vn/app/zingpoll/id1076238279?mt=8" class="App-icon" target="_blank"> </a>
                     </div>
@@ -294,25 +301,26 @@
         <div class='row'>
             <div class='col-sm-4'>
                 <a href='http://www.axonactive.com' target='_blank'>
-                    <img class='img-responsive center logo-responsive-phone' src='resource/axonactive.png'>
+                    <img class='img-responsive center logo-responsive-phone' src='../resources/img/axonactive.png'
+                    th:src='@{/resources/img/axonactive.png}'></img>
                 </a>
             </div>
             <div class='col-xs-4 col-sm-5 half-full-width'>
                 <div class='align-left'>
                     <div class='row'>
                         <div class='scale-to-small col-xs-1'>
-                            <img src='resource/location.png'>
+                            <img src='../resources/img/location.png' th:src='@{/resources/img/location.png}'></img>
                         </div>
                         <div class='col-xs-10'>
-                            <span class='text-uppercase span-bold'>TP. Hồ Chí Minh, Việt Nam</span>
-                            <br>
+                            <span class='text-uppercase span-bold'>HO CHI MINH CITY, VIET NAM</span>
+                            <br></br>
                             <div class='content'>
-                                <span>39B Trường Sơn,</span>
-                                <br>
-                                <span>Phường 4, Quận Tân Bình,</span>
-                                <br>
-                                <span>TP. Hồ Chí Minh, Việt Nam</span>
-                                <br>
+                                <span>39B Truong Son Street,</span>
+                                <br></br>
+                                <span>Ward 4, Tan Binh District,</span>
+                                <br></br>
+                                <span>Ho Chi Minh City, Vietnam</span>
+                                <br></br>
                                 <span>
                                     <a class='link' href='mailto:info@axonactive.com' target='_blank'>info@axonactive.com</a>
                                 </span>
@@ -325,57 +333,57 @@
                 <div class='align-left'>
                     <div class='row'>
                         <div class='scale-to-small col-xs-1'>
-                            <img src='resource/location.png'>
+                            <img src='../resources/img/location.png' th:src="@{/resources/img/location.png}"></img>
                         </div>
                         <div class='col-xs-10'>
-                            <span class='span-bold'>ĐÀ NẴNG, VIỆT NAM</span>
+                            <span class='span-bold'>DA NANG, VIETNAM</span>
                         </div>
                     </div>
                     <div class='row'>
                         <div class='scale-to-small col-xs-1'>
-                            <img src='resource/location.png'>
+                            <img src='../resources/img/location.png' th:src="@{/resources/img/location.png}"></img>
                         </div>
                         <div class='col-xs-10'>
-                            <span class='span-bold'>SAN FRANCISCO, HOA KỲ</span>
+                            <span class='span-bold'>SAN FRANCISCO, USA</span>
                         </div>
                     </div>
                     <div class='row'>
                         <div class='scale-to-small col-xs-1'>
-                            <img src="resource/location.png">
+                            <img src='../resources/img/location.png' th:src="@{/resources/img/location.png}"></img>
                         </div>
                         <div class='col-xs-10'>
-                            <spann class='span-bold'>LUZERN, THỤY SỸ</spann>
+                            <span class='span-bold'>LUZERN, SWITZERLAND</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <hr>
+        <hr></hr>
         <div class='row'>
             <div class='col-sm-7 copyright half-full-width'>
-                <span class='inline'>Sản phẩm của</span>
+                <span class='inline'>A product of</span>
                 <a class='link inline' href='http://axonactive.com' tabindex='-1' target='_blank'>AXON ACTIVE VIETNAM</a>
-                <span>
-                ©
+                <span>© 
                 <script>document.write(new Date().getFullYear())</script>
                 |
-                    <span class='inline'>Bản quyền được bảo hộ.</span>
+                    <span class='inline'>All rights reserved.</span>
                 </span>
 
             </div>
             <div class='col-sm-5 term-privacy half-full-width'>
-                <a class='link' href='#' tabindex='-1'>Điều khoản sử dụng</a> |
-                <a class='link' href='#' tabindex='-1'>Chính sách bảo mật</a>
+                <a class='link' href='#' tabindex='-1'>Terms of Service</a> |
+                <a class='link' href='#' tabindex='-1'>Privacy Statement</a>
             </div>
         </div>
     </footer>
+ 
     <script>
         var modal = document.getElementById('myModal');
 
         // Get the button that opens the modal
         var btn = document.getElementById("myBtn");
 
-        // Get the <span> element that closes the modal
+        // Get the span element that closes the modal
         var span = document.getElementsByClassName("close")[0];
 
         // When the user clicks the button, open the modal 
@@ -384,7 +392,7 @@
             modal.style.display = "block";
         };
 
-        // When the user clicks on <span> (x), close the modal
+        // When the user clicks on span (x), close the modal
         span.onclick = function() {
 
             modal.style.display = "none";
