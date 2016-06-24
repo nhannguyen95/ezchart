@@ -15,6 +15,12 @@
 		<spring-data-jpa.version>1.10.1.RELEASE</spring-data-jpa.version>
 	</properties>
 	
+   <repositories>
+  			<repository>
+   				<id>eclipselink</id>
+    			<url>http://www.eclipse.org/downloads/download.php?r=1&amp;nf=1&amp;file=/rt/eclipselink/maven.repo/</url>
+ 			 </repository>
+	</repositories>
   <dependencies>
     <!-- Spring dependencies -->
 	<dependency>
@@ -41,6 +47,11 @@
 			<version>${spring-data-jpa.version}</version>
 	</dependency>
 	
+	<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-simple </artifactId>
+			<version>1.7.9</version>
+		</dependency>
 	<!-- Java servlet -->
 	<dependency>
 		<groupId>javax.servlet</groupId>
@@ -67,13 +78,43 @@
 			<artifactId>thymeleaf-spring3</artifactId>
 			<version>${thymeleaf.version}</version>
 		</dependency>
-		
+		<!--  eclipselink -->
+		<dependency>
+		    <groupId>org.eclipse.persistence</groupId>
+		    <artifactId>javax.persistence</artifactId>
+		    <version>2.0.0</version>
+		    <scope>provided</scope><!-- since I'm running inside a Java EE container -->
+		</dependency>
+		  
+		<dependency>
+		    <groupId>org.eclipse.persistence</groupId>
+		    <artifactId>org.eclipse.persistence.jpa</artifactId>
+		    <version>2.5.0</version>
+		    <scope>provided</scope><!-- since I'm running inside a Java EE container -->
+		 </dependency>
+		 
+		 <!-- Front end -->
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>bootstrap</artifactId>
+			<version>3.3.4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>jquery</artifactId>
+			<version>2.1.4</version>
+		</dependency>
   </dependencies>
   
   <build>
     <finalName>ezchart</finalName>
     
     <plugins>
+    		<plugin>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>2.4</version>
+            </plugin>
+            
 		    <plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
