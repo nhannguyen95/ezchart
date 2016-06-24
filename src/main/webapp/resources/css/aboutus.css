@@ -27,7 +27,7 @@ body {
 
 .app-icon {
     display: inline-block;
-    background: url('../resources/img/App-Store_icon.png') no-repeat;
+    background: url('../img/App-Store_icon.png') no-repeat;
     width: 101px;
     height: 32px;
     margin-left: 15px;
@@ -38,13 +38,13 @@ body {
 }
 
 .app-icon:hover {
-    background: url('../resource/App-Store_icon-hover.png') no-repeat;
+    background: url('../img/App-Store_icon-hover.png') no-repeat;
     background-size: 100%;
 }
 
 .Google-icon {
     display: inline-block;
-    background: url('../resource/Google-Play_icon.png') no-repeat;
+    background: url('../img/Google-Play_icon.png') no-repeat;
     width: 101px;
     height: 32px;
     margin-left: 15px;
@@ -56,7 +56,7 @@ body {
 }
 
 .Google-icon:hover {
-    background: url('../resource/Google-Play_icon-hover.png') no-repeat;
+    background: url('../img/Google-Play_icon-hover.png') no-repeat;
     background-size: 100%;
 }
 
