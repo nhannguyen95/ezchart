@@ -6,51 +6,61 @@ import javax.persistence.*;
 
 
 @Entity
-//@TableGenerator(name = "user" )
+@TableGenerator(name = "user" )
 public class User implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long UserID;
+	private Long userID;
 	
+	@Column( name = "username")
+	private String username;
 	
-	@Column( name = "UserName")
-	private String UserName;
+	@Column (name = "used")
+	private boolean used;
 	
-	@Column (name = "Used")
-	private boolean Used;
-	
-	
-
-		
-	
-
-	public String getUserName() {
-		return UserName;
-	}
-
-	public void setUserName(String userName) {
-		UserName = userName;
-	}
-
-	public boolean isUsed() {
-		return Used;
-	}
-
-	public void setUsed(boolean used) {
-		Used = used;
-	}
-
-	public User(Long userID, String userName, boolean used) {
-
-		UserID = userID;
-		UserName = userName;
-		Used = used;
-	}
 
 	public User() {
 		super();
 	}
 	
-	
+	public User(Long userID, String username, boolean used) {
+		super();
+		this.userID = userID;
+		this.username = username;
+		this.used = used;
+	}
+
+	public Long getUserID() {
+		return userID;
+	}
+
+	public void setUserID(Long userID) {
+		this.userID = userID;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public boolean isUsed() {
+		return used;
+	}
+
+	public void setUsed(boolean used) {
+		this.used = used;
+	}
+
+	@Override
+	public String toString() {
+		return "User [userID=" + userID + ", username=" + username + ", used="
+				+ used + "]";
+	}
 	
 }
