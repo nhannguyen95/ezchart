@@ -4,26 +4,6 @@ body {
     background-color: rgb(108, 122, 137);
 }
 
-.navbar-default {
-    border-bottom: solid 1px rgb(108, 122, 137);
-    background: rgb(255, 255, 255);
-}
-
-.navbar-default .navbar-brand:hover,
-.navbar-default .navbar-brand:focus {
-    color: rgb(53, 108, 214);
-}
-
-.navbar-default .navbar-nav > li > a:hover,
-.navbar-default .navbar-nav > li > a:focus {
-    color: rgb(53, 108, 214) !important;
-}
- 
-.navbar-default .dropdown .dropdown-menu > li > a:hover {
-    background-color: white !important;
-    color: rgb(53, 108, 214);
-}
-
 section.success {
     background: #f0f2f3;
     padding-top: 6em;
@@ -173,23 +153,6 @@ span {
 .copyright {
     text-align: left;
     padding-bottom: 10px;
-}
-
-#creChart {
-    font-family: 'Fira Sans' sans-serif;
-    font-size: 1.5em;
-    color: rgb(53, 108, 214); 
-    width: 250px;
-    border: solid 1px rgb(53, 108, 214);
-    border-radius: 3px;
-    font-weight: 300;
-    transition: all .28s;
-
-}
-
-#creChart:hover {
-    background-color: rgb(53,108,214);
-    color: rgb(236, 239, 240);
 }
 
 .anchor {

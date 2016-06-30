@@ -47,13 +47,13 @@
     <!-- css -->
     <link rel="stylesheet" href="../resources/css/format.css" th:href="@{/resources/css/format.css}"></link>
     <link rel="stylesheet" href="../resources/css/home.css" th:href="@{/resources/css/home.css}" ></link>
+    <link rel="stylesheet" href="../resources/css/button.css" th:href="@{/resources/css/button.css}" ></link>
+    <link rel="stylesheet" type="text/css" href="../resources/css/navbar.css" th:href="@{/resources/css/navbar.css}"></link>
 
 </head>
 
 <body>
-	 <form th:object="${employee}" th:action = "@{/home}" action="#" method="get">
-	 	
-	 </form>
+	 
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class='container'>
             <div class='navbar-header'>
@@ -70,7 +70,10 @@
                     <li><a href='#feature-anchor'>Feature</a></li>
                     <li><a href='#slideshow-anchor'>Showcase</a></li>
                     <li><a class='notScroll' th:href="@{/aboutus}">Contact</a></li>
+                    
                 </ul>
+                <!-- Login and language button -->
+                <!--  
                 <ul class='nav navbar-nav navbar-right'>                    	       					           	
                     	<li id="myBtn" class="myBtn" ><a href='#'>Sign In</a></li>	
                     
@@ -88,8 +91,10 @@
                             <li><a href='#'>English</a></li>
                             <li><a href='#'>Vietnamese</a></li>
                         </ul>
+                       
                     </li>
                 </ul>
+                 -->
             </div>
         </div>
 
@@ -121,14 +126,18 @@
     </div>
 
     <section id='about' class='success'>
+ 
         <div class='container' align='center'>
             <img class='img-responsive' src='../resources/img/logo.png' th:src="@{/resources/img/logo.png}"/>
             <div>
-                <a id='creChart' class='btn btn-lg btn-outline'>Create Your Chart</a>
+            	
+                <a th:href="@{/table}" id='creChart' class='btn btn-lg btn-outline'>Create Your Chart</a>
+     
             </div>
         </div>
     </section>
 
+					      
     <a dfn="dfn" id='feature-anchor' class='anchor'>.</a>
     <section id='feature'>
         <div class='row'>
@@ -146,7 +155,7 @@
             </div>
         </div>
     </section>
-
+	
     <a dfn="dfn" id='slideshow-anchor' class='anchor'>.</a>
     <section id="slideshow">
         <div class='row'>

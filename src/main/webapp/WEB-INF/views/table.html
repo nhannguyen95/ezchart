@@ -1,27 +1,132 @@
-
 <!DOCTYPE HTML>
 <html>
 	<head>
-	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-	<link rel="stylesheet" href="table.css">
-	<script src="jquery-2.1.3.min.js"></script>
-	<script src="table.js" ></script>
+
+	 <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    
+ 	<!-- bootstrap -->
+    <link rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'></link>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	 
+ 	<!-- font -->
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Fira+Sans:400,300,700,500,400italic,500italic,700italic,300italic'></link>
+	<link href='http://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet' type='text/css'></link>
+	
+	<!-- owlcarousel for slideshow -->
+    <script src="http://www.owlcarousel.owlgraphic.com/assets/owlcarousel/owl.carousel.js"></script>
+    <link rel="stylesheet" href="http://www.owlcarousel.owlgraphic.com/assets/owlcarousel/assets/owl.carousel.min.css" ></link>
+    <link rel="stylesheet" href="http://www.owlcarousel.owlgraphic.com/assets/owlcarousel/assets/owl.theme.default.min.css"></link>
+
+	<!-- featherlight for gallery -->
+    <script src='http://noelboss.github.io/featherlight/release/featherlight.min.js'></script>
+    <script src='http://noelboss.github.io/featherlight/release/featherlight.gallery.min.js'></script>
+    <link rel='stylesheet' href='http://noelboss.github.io/featherlight/release/featherlight.min.css'></link>
+    
+    <!-- google login -->
+    <script src="https://www.googleapis.com/auth/plus.login"></script>
+    <script src="https://apis.google.com/js/client:plusone.js"></script>
+    <script src="https://apis.google.com/js/platform.js" async="async" defer="defer"></script>
+    <script src="https://apis.google.com/js/platform.js?onload=renderButton" async="async" defer="defer"></script>
+    <script src="https://apis.google.com/js/client:platform.js?onload=startApp"></script>
+    <meta name="google-signin-client_id" content="846042350708-k2uajbcle5b83vo1bajgr5qeducmcibm.apps.googleusercontent.com"></meta>
+	    
+	<!-- local resources -->
+    
+ 	<!-- js -->
+ 	<script src="../resources/js/method.js" th:src="@{/resources/js/method.js}"></script>
+ 	<script src="../resources/js/table.js" th:src="@{/resources/js/table.js}"></script>
+     
+    <!-- css -->
+    <link rel="stylesheet" href="../resources/css/format.css" th:href="@{/resources/css/format.css}"></link>
+ 	<link rel="stylesheet" href="../resources/css/table.css" th:href="@{/resources/css/table.css}"></link>
+ 	<link rel="stylesheet" href="../resources/css/button.css" th:href="@{/resources/css/button.css}" ></link>
+ 	<link rel="stylesheet" href="../resources/css/navbar.css" th:href="@{/resources/css/navbar.css}" ></link>
 	</head>
 	<body>
-	<div class="container">
+       	<nav class="navbar navbar-default navbar-fixed-top">
+        <div class='container'>
+            <div class='navbar-header'>
+                <button type='button' class='navbar-toggle' data-toggle='collapse' data-target='#myNavbar'>
+                    <span class='icon-bar'></span>
+                    <span class='icon-bar'></span>
+                    <span class='icon-bar'></span>
+                </button>
+                <a class='navbar-brand' th:href='@{/home}'>eZChart</a>
+            </div>
+            <div class='collapse navbar-collapse' id='myNavbar'>
+                <ul class='nav navbar-nav'>
+                    <li><a class='notScroll' th:href="@{/home}">Home</a></li>
+                    <li><a class='notScroll' th:href='@{/home#feature-anchor}'>Feature</a></li>
+                    <li><a class='notScroll' th:href='@{/home#slideshow-anchor}'>Showcase</a></li>
+                    <li><a class='notScroll' th:href='@{/aboutus}'>Contact</a></li>
+                </ul>
+                <!-- Login and language button -->
+                <!-- 
+                <ul class='nav navbar-nav navbar-right'>                    	       					           	
+                    	<li id="myBtn" class="myBtn" ><a href='#'>Sign In</a></li>	
+                    
+                    	<li id="profile"></li>                  	
+                    	
+                    	<li id="fbphoto"></li>
+                    
+                    	<li id="fbname"></li> 
+                    	
+      				
+                    <li class='dropdown'>
+                        <a class='dropdown-toggle' data-toggle='dropdown' href='#'>Language
+                        <span class='caret'></span></a>
+                        <ul class='dropdown-menu'>
+                            <li><a href='#'>English</a></li>
+                            <li><a href='#'>Vietnamese</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                 -->
+            </div>
+        </div>
+
+    	</nav>
+      <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close">×</span>
+                <center>
+                    <h2 style="font-family: Arial">Sign In</h2>
+                </center>
+            </div>
+            <div class="modal-body">
+				
+                <button class="btn-social facebook" onclick="FB.login();">
+                   <span style=" position: relative; left:-15px"> 
+                   		<img style="width:30px; height:30px" src="../resources/img/F_icon.svg.png" 
+                   		th:src="@{/resources/img/F_icon.svg.png}"/></span>
+                    <span style="padding-left:28px">Sign in with Facebook</span>
+                </button>
+                
+                <div class="google-social" id="signin-button"></div>
+            </div>
+        </div>
+    </div>
+    <!-- The Table -->
+	<div style="margin-top:80px" class="container" id="content">
   
- 
+  		 <input type="text" id="chart-title" placeholder="Chart title"/>
+        
   <div id="table" class="table-editable">
-    
 	
-    <table class="table">
+    <table class="table table-responsive">
 	   <!-- show the row with symbol-->
 	   <tr>
         <th><span class="table-add-column glyphicon glyphicon-circle-arrow-right"></span></th>
-        <th></th>
+        <td></td>
 		
 		<td  class="hide">
-		<span id="remove_column" title="" class="table-remove-col glyphicon glyphicon-remove"></span>
+		<span id = "remove_col" title="" class="table-remove-col glyphicon glyphicon-remove"></span>
 		</td>
 		
 		<!-- class define symbol-->
@@ -33,7 +138,7 @@
       <tr>
 		
         <th contenteditable="true">Item</th>
-        <th contenteditable="true">Value</th>
+        <th contenteditable="true">Value 1</th>
 		<th contenteditable="true" class="hide"></th>
 		<!-- class define symbol-->
 		<td class='special'>
@@ -47,10 +152,10 @@
 		
         <td contenteditable="true">Write here</td>
         <td contenteditable="true">Write here</td>
-		<td contenteditable="true" class="hide"></td>
+		<td contenteditable="true" class="hide">Write here</td>
 		<!-- class define symbol-->
         <td class='special'>
-          <span id="remove_row" class="table-remove glyphicon glyphicon-remove" title=""></span>  
+          <span class="table-remove glyphicon glyphicon-remove"></span>  
 		  
         </td>
       </tr>
@@ -60,19 +165,48 @@
        
 		<td contenteditable="true">Write here</td>
         <td contenteditable="true">Write here</td>
-		<td contenteditable="true" class="hide"></td>
+		<td contenteditable="true" class="hide">Write here</td>
 		<!-- class define symbol-->
         <td class='special'>
-          <span id="remove_row" class="table-remove glyphicon glyphicon-remove" title=""></span>  
+          <span class="table-remove glyphicon glyphicon-remove "></span>  
         </td>
       </tr>
 	  
     </table>
-	
-	
+     <section id='about' class='success'>
+    <div class='container' align='center'>
+      <div>
+      		<form th:object="${chart}" th:action = "@{/chart/save}" action="#" method="post">
+		         <input id="input_data" type="text" th:field="*{chartData}" class="form-control hide" placeholder=""/>
+		         <input class="btn btn-lg btn-outline" id='creChart' type="submit" value="Create Your Chart"/>
+	        </form>
+      </div>
+        </div>
+      </section> 
+      
   </div>
-  
-  
+   
 </div>
-	
 	</body>
+	<script>
+        var modal = document.getElementById('myModal');
+    
+        // Get the button that opens the modal
+        var btn = document.getElementById("myBtn");
+
+        // Get the span element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks the button, open the modal 
+        btn.onclick = function() {
+
+            modal.style.display = "block";
+        };
+
+        // When the user clicks on span (x), close the modal
+        span.onclick = function() {
+
+            modal.style.display = "none";
+        };
+    </script>
+</html>

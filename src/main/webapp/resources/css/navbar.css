@@ -1,0 +1,19 @@
+.navbar-default {
+    border-bottom: solid 1px rgb(108, 122, 137);
+    background: rgb(255, 255, 255);
+}
+
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+    color: rgb(53, 108, 214);
+}
+
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+    color: rgb(53, 108, 214) !important;
+}
+ 
+.navbar-default .dropdown .dropdown-menu > li > a:hover {
+    background-color: white !important;
+    color: rgb(53, 108, 214);
+}

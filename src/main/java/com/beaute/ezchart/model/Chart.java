@@ -4,29 +4,33 @@ import java.io.Serializable;
 import java.sql.Date;
 import java.util.Arrays;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.TableGenerator;
 
 @Entity
 @TableGenerator(name = "chart" )
 public class Chart implements Serializable{
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1L;
-
-	/**
-	 * 
-	 */
 	
 	@Id	
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long chartID;
+	
 	private byte[] imgBin;
+	
 	private String imgLink;
+	
+	@Column 
 	private String chartData; 
+	
 	//@Temporal(TemporalType.TIMESTAMP)	
 	private Date dateCreated;
-
 	
 	@ManyToOne
 	private User user;
@@ -36,12 +40,12 @@ public class Chart implements Serializable{
 	}
 
 	public Chart(Long chart_ID, byte[] img_bin, String img_link,
-			String char_tdata, Date date_create) {
+			String chartData, Date date_create) {
 		super();
 		this.chartID = chart_ID;
 		this.imgBin = img_bin;
 		this.imgLink = img_link;
-		this.chartData = char_tdata;
+		this.chartData = chartData;
 		this.dateCreated = date_create;
 		
 	}
@@ -61,15 +65,7 @@ public class Chart implements Serializable{
 	public void setImg_link(String img_link) {
 		this.imgLink = img_link;
 	}
-
-	public String getChar_tdata() {
-		return chartData;
-	}
-
-	public void setChar_tdata(String char_tdata) {
-		this.chartData = char_tdata;
-	}
-
+	
 	public Date getDate_create() {
 		return dateCreated;
 	}
@@ -86,6 +82,14 @@ public class Chart implements Serializable{
 		this.chartID = chart_ID;
 	}
 
+	public String getChartData() {
+		return chartData;
+	}
+
+	public void setChartData(String chartData) {
+		this.chartData = chartData;
+	}
+	
 	@Override
 	public String toString() {
 		return "Chart [chart_ID=" + chartID + ", img_bin="
@@ -93,9 +97,5 @@ public class Chart implements Serializable{
 				+ ", char_tdata=" + chartData + ", date_create=" + dateCreated
 				+ ", user=" + user + "]";
 	}
-
-	
-	
-	
 
 }

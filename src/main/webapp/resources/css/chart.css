@@ -1,0 +1,37 @@
+#chart-content {
+	margin: 20px auto;
+	margin-top : 70px;
+}
+
+#chart-content header h1 {
+	font-size: 32px;
+	
+	color: #6f6f6f;
+	font-weight: 600;
+	text-shadow: 0 0 0 rgba(0,0,0,0.4);
+	text-align: center;
+	margin: 10px 0 0;
+}
+
+#chart-content nav {
+	margin: 0 auto 40px;
+	text-align: center;
+}
+
+#chart-content nav a {
+	background: #e1e0e0;
+	display: inline-block;
+	font-size: 13px;
+	margin: 10px 5px 0 10px;
+	padding: 5px;
+	text-decoration: none;
+	color: #fff;
+	font-family: 'Open Sans';
+	cursor: pointer;
+}
+
+#chart-content nav a:target, #chart-content nav a:hover {
+	background: rgba(53, 108, 214, 0.7);
+	color: white;
+} 
+ 

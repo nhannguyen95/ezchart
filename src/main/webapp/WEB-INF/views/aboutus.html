@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset='ISO-8859-1'/>
+    <meta charset='UTF-8'/>
 	<meta name="view-port" content="width=device-width, initial-scale=1"/>
 	    
     <!-- jquery -->
@@ -21,7 +21,8 @@
 	<meta name="google-signin-client_id" content="846042350708-k2uajbcle5b83vo1bajgr5qeducmcibm.apps.googleusercontent.com"></meta>
 	
 	<!-- local resources -->
-	
+	<!-- font -->
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'/>
 	<!-- js -->
 	<script src="../resources/js/method.js" th:src="@{/resources/js/method.js}"></script>
 	
@@ -29,6 +30,7 @@
     <link rel='stylesheet' href='../resources/css/home.css' th:href="@{/resources/css/home.css}"></link>
     <link rel='stylesheet' href='../resources/css/aboutus.css' th:href="@{/resources/css/aboutus.css}"></link>
     <link rel="stylesheet" type="text/css" href="../resources/css/format.css" th:href="@{/resources/css/format.css}"></link>
+    <link rel="stylesheet" type="text/css" href="../resources/css/navbar.css" th:href="@{/resources/css/navbar.css}"></link>
 
 </head>
 
@@ -50,6 +52,8 @@
                     <li><a class='notScroll' th:href='@{/home#slideshow-anchor}'>Showcase</a></li>
                     <li><a class='notScroll' th:href='@{/aboutus}'>Contact</a></li>
                 </ul>
+                <!-- Login and language button -->
+                <!-- 
                 <ul class='nav navbar-nav navbar-right'>
                     <li id="myBtn"><a href='#'>Sign In</a></li>
                     <li id="profile"></li>
@@ -66,6 +70,7 @@
                         </ul>
                     </li>
                 </ul>
+                 -->
             </div>
         </div>
 
@@ -76,7 +81,7 @@
         <!-- Modal content -->
         <div class="modal-content">
             <div class="modal-header">
-                <span class="close">×</span>
+                <span class="close">Ã—</span>
                 <center>
                     <h2 style="font-family: Arial">Sign In</h2>
                	</center>
@@ -101,6 +106,7 @@
 
     <div id='add-background'>
         <section class="container" id='main-content'>
+        
             <section id="about_us_infor">
                 <h3>About Us</h3>
                 <img src="https://www.zingpoll.com/assets/image/aavn-oursourcing-firm.jpg" id="img_main"></img>
@@ -169,8 +175,8 @@
                         <img src="https://www.zingpoll.com/assets/image/Vierwaldstattersee-Freizeit.jpg" class="menu_picture " />
                     </div>
 
-                    <p><strong> Vierwaldstättersee Karte </strong></p>
-                    <p>Unterwegs auf dem schönsten See der Schweiz. Die App bringt den Vierwaldstättersee für Wassersportler und Seetouristen aufs Tablet und Smartphone. Online und offline nutzbar.
+                    <p><strong>Vierwaldstattersee Karte</strong></p>
+                    <p>Unterwegs auf dem schonsten See der Schweiz. Die App bringt den Vierwaldstattersee fur Wassersportler und Seetouristen aufs Tablet und Smartphone. Online und offline nutzbar.
 
                     </p>
                     <div class="icon">
@@ -363,7 +369,7 @@
             <div class='col-sm-7 copyright half-full-width'>
                 <span class='inline'>A product of</span>
                 <a class='link inline' href='http://axonactive.com' tabindex='-1' target='_blank'>AXON ACTIVE VIETNAM</a>
-                <span>© 
+                <span>Â© 
                 <script>document.write(new Date().getFullYear())</script>
                 |
                     <span class='inline'>All rights reserved.</span>
